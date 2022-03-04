@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  openSidenav: boolean = false;
   title = 'my-fitness-app';
+
+  toggleSideNav(event:any){
+    console.log("openSideNav");
+    console.log(event);
+    this.openSidenav = event;
+  }
 }

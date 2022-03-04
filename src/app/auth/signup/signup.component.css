@@ -1,0 +1,16 @@
+/*
+.signup {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.signup-form {
+    width:300px; // as the container width is 300px so the layout center  did't work
+    border: 2px solid green;
+}
+
+*/
+.mat-form-field{
+    width:300px;
+}

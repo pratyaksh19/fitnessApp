@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+    <div>
+        <!-- will see that button only for xs mobile device & hide for any high pixels-->
+        <button mat-icon-button (click)="onToggleSidenav()" fxHide.gt-xs>
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <div><a routerLink="/">LOGO</a></div>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+        <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+            <li *ngIf="!isAuth"><a routerLink="/signup">Signup</a></li>
+            <li *ngIf="!isAuth"><a routerLink="/login">Login</a></li>
+            <li *ngIf="isAuth"><a routerLink="/training">Training</a></li>
+            <li *ngIf="isAuth"><a (click)="onLogOut()">Logout</a></li>
+        </ul>
+    </div>
+</mat-toolbar>

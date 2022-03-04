@@ -1,0 +1,22 @@
+<section>
+    <!-- since we are center on cross axis so we wrote center 2 times-->
+    <form [formGroup]="signupForm" fxLayout="column" fxLayoutGap="10px" (ngSubmit)="onSubmit()" fxLayoutAlign="center center" class="signup-form"> <!-- we ca use css classes & flexbox property in plcae to flex layout too-->
+        <mat-form-field class="child1">
+            <input type="email" matInput placeholder="Your Email" formControlName="email" email required>
+            <mat-error *ngIf="signupForm.value.email.length===0">Field must not be empty</mat-error>
+            <mat-error *ngIf="signupForm.value.email.length!==0">Email is Invalid</mat-error>
+        </mat-form-field>
+        <mat-form-field hintLabel="Should be at least 6 characters long." class="child2">
+            <input type="password" matInput placeholder="Your Password" formControlName="password" required minlength="6">
+            <mat-hint align="end">{{signupForm.value.password?.length}}/6</mat-hint>
+            <mat-error>Has to be atleast 6 characters</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Your Birthday" [matDatepicker]="picker" [max]="maxDate" formControlName="birthdate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-checkbox formControlName="agree" color="primary" required>Agree to terms & conditions.</mat-checkbox>
+        <button type="submit" mat-raised-button color="primary" [disabled]="signupForm.invalid">Submit</button>
+    </form>
+</section>
